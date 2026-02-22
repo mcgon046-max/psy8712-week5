@@ -20,5 +20,7 @@ ABclean_tbl <- Bdata_tbl |>
   mutate(across(q1:q10, as.integer)) |>
   left_join(Bnotes_tbl, by = "parnum") |>
   filter(is.na(notes)) |>
-  bind_rows(Aclean_tbl, .id = "lab") |> # did not differentiate as lab "A" or "B" but as lab 1 and 2, lab 1 being lab B, I suppose we'll discuss an elegant way id based on a character... AI wanted to add extra lines of code, so I just went by the assginment ("different values")
+  bind_rows(Aclean_tbl, .id = "lab") |> # did not differentiate as lab "A" or "B" but as lab 1 and 2, lab 1 being lab B, I suppose we'll discuss an elegant way id based on a character... AI wanted to add extra lines of code, so I just went by the assignment ("different values")
+  select(-notes)
+  
   
