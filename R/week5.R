@@ -18,4 +18,7 @@ Aclean_tbl <- Adata_tbl |>
 ABclean_tbl <- Bdata_tbl |>
   mutate(datadate = mdy_hms(datadate)) |>
   mutate(across(q1:q10, as.integer)) |>
-  left_join(Bnotes_tbl, by = "parnum")
+  left_join(Bnotes_tbl, by = "parnum") |>
+  filter(is.na(notes)) |>
+  
+  
